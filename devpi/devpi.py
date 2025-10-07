@@ -113,39 +113,17 @@ def test_download(package_name, package_version):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Test devpi server functionality (login, upload, download)",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
+    parser = argparse.ArgumentParser(description="Test devpi server functionality (login, upload, download)",formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   python devpi.py --server https://blah.com --username testuser --password testpass --index testuser/dev
   python devpi.py -s https://blah.com -u testuser -p testpass -i testuser/dev
         """
     )
-
-    parser.add_argument(
-        "-s", "--server",
-        required=True,
-        help="DevPI server URL (e.g., https://blahblah.blah)"
-    )
-
-    parser.add_argument(
-        "-u", "--username",
-        required=True,
-        help="DevPI username"
-    )
-
-    parser.add_argument(
-        "-p", "--password",
-        required=True,
-        help="DevPI password"
-    )
-
-    parser.add_argument(
-        "-i", "--index",
-        required=True,
-        help="DevPI index (e.g., username/indexname)"
-    )
+    parser.add_argument("-s", "--server",required=True,help="DevPI server URL (e.g., https://blahblah.blah)")
+    parser.add_argument("-u", "--username",required=True,help="DevPI username")
+    parser.add_argument("-p", "--password",required=True,help="DevPI password")
+    parser.add_argument("-i", "--index",required=True,help="DevPI index (e.g., username/indexname)")
 
     args = parser.parse_args()
 
@@ -158,8 +136,6 @@ Examples:
         print(f"{RED}Package directory not found: {package_dir}{RESET}", file=sys.stderr)
         sys.exit(1)
 
-    print("=" * 60)
-    print("DevPI Server Testing Suite")
     print("=" * 60)
     print(f"Server: {args.server}")
     print(f"Username: {args.username}")
