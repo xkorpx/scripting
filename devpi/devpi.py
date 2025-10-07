@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
 """
-DevPi Server Testing Script
 This script assumes it is being run from within a virtual environment.
-
 Usage:
     python devpi.py --server https://server-ip --username USER --password PASS --index INDEX
 """
